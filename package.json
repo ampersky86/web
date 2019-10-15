@@ -3,9 +3,14 @@
   "private": true,
   "scripts": {
     "gateway:dev": "yarn workspace @backend/gateway dev",
+    "frontend:dev": "yarn workspace @frontend/dashboard --dev",
+    "dev": "webpack-dev-server --config ./packages/frontend/dashboard/config/webpack/dev.js --hot --history-api-fallback --disable-host-check --host=127.0.0.1 --open",
     "typecheck": "lerna run typecheck",
-    "lint": "tslint --project tsconfig.json -c tslint.json -t codeFrame backend/**/*.ts"
+    "lint": "tslint --project tsconfig.json -c tslint.json -t codeFrame packages/frontend/**/*.ts"
   },
+  "workspaces": [
+    "packages/frontend/**/*"
+  ],
   "devDependencies": {
     "lerna": "3.15.0",
     "tslint": "^5.17.0",
@@ -15,5 +20,8 @@
     "hooks": {
       "pre-push": "yarn lint && yarn typecheck"
     }
+  },
+  "dependencies": {
+    "typescript": "^3.6.4"
   }
 }
