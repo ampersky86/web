@@ -135,7 +135,7 @@ const Input = ({
 Input.defaultProps = {
   color: 'blueBayoux',
   borderColor: 'lightGray',
-  //onChange: () => {},
+  // onChange: () => {},
 }
 
 export default Input
