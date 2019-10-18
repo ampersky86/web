@@ -4,7 +4,7 @@
   "scripts": {
     "gateway:dev": "yarn workspace @backend/gateway dev",
     "ccfg": "yarn babel  ./frontend/dashboard/config/webpack/dev.ts -o ./frontend/dashboard/config/webpack/dev.js",
-    "dev": "cd ./frontend/dashboard && yarn dev",
+    "front:dev": "cd ./frontend/dashboard && yarn dev",
     "typecheck": "lerna run typecheck",
     "lint": "tslint --project tsconfig.json -c tslint.json -t codeFrame frontend/**/*.ts"
   },
