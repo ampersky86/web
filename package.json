@@ -3,13 +3,13 @@
   "private": true,
   "scripts": {
     "gateway:dev": "yarn workspace @backend/gateway dev",
-    "frontend:dev": "yarn workspace @frontend/dashboard --dev",
-    "dev": "webpack-dev-server --config ./packages/frontend/dashboard/config/webpack/dev.js --hot --history-api-fallback --disable-host-check --host=127.0.0.1 --open",
+    "ccfg": "yarn babel  ./frontend/dashboard/config/webpack/dev.ts -o ./frontend/dashboard/config/webpack/dev.js",
+    "dev": "cd ./frontend/dashboard && yarn dev",
     "typecheck": "lerna run typecheck",
-    "lint": "tslint --project tsconfig.json -c tslint.json -t codeFrame packages/frontend/**/*.ts"
+    "lint": "tslint --project tsconfig.json -c tslint.json -t codeFrame frontend/**/*.ts"
   },
   "workspaces": [
-    "packages/frontend/**/*"
+    "frontend/**/*"
   ],
   "devDependencies": {
     "lerna": "3.15.0",

@@ -1,31 +1,15 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.plugins = exports.resolve = exports.module = exports.output = exports.entry = exports.mode = void 0;
-
-var _webpack = _interopRequireDefault(require("webpack"));
-
-var _autoprefixer = _interopRequireDefault(require("autoprefixer"));
-
-var _htmlWebpackTemplate = _interopRequireDefault(require("html-webpack-template"));
-
-var _htmlWebpackPlugin = _interopRequireDefault(require("html-webpack-plugin"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const mode = 'development';
-exports.mode = mode;
-const entry = ['@babel/polyfill', './src/index'];
-exports.entry = entry;
-const output = {
+import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
+import htmlTemplate from 'html-webpack-template';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+export const mode = 'development';
+export const entry = ['@babel/polyfill', './src/index'];
+export const output = {
   filename: '[name].js',
   publicPath: '/',
   path: '/'
 };
-exports.output = output;
-const _module = {
+export const module = {
   rules: [{
     test: /\.(js|ts|tsx)$/,
     exclude: /node_modules/,
@@ -48,7 +32,7 @@ const _module = {
     use: ['style-loader', 'css-loader', {
       loader: 'postcss-loader',
       options: {
-        plugins: () => [(0, _autoprefixer.default)({
+        plugins: () => [autoprefixer({
           overrideBrowserslist: ['>2%', 'last 2 versions']
         })]
       }
@@ -58,15 +42,12 @@ const _module = {
     loader: 'file-loader?name=[name].[ext]'
   }]
 };
-exports.module = _module;
-const resolve = {
+export const resolve = {
   extensions: ['.ts', '.tsx', '.js', '.json']
 };
-exports.resolve = resolve;
-const plugins = [new _htmlWebpackPlugin.default({
+export const plugins = [new HtmlWebpackPlugin({
   title: 'Atlantis United',
   inject: false,
-  template: _htmlWebpackTemplate.default,
+  template: htmlTemplate,
   appMountId: 'app'
 })];
-exports.plugins = plugins;

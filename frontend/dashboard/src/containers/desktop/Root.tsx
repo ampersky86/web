@@ -9,6 +9,7 @@ import IntlProvider from '../IntlProvider'
 import Preload from '../Preload'
 import Routes from './Routes'
 
+
 interface RootProps {
   history: History
 }
